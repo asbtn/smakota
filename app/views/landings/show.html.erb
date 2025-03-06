@@ -1,27 +1,35 @@
-<div class="flex grow">
-  <div class="flex w-1/2 justify-end items-center ml-10">
-    <%= image_tag 'landing.svg', class: 'h-150' %>
+<div class="flex grow justify-center">
+  <div class="flex flex-col w-1/2 justify-end items-end">
+    <%= image_tag 'landing.svg', class: 'h-150 w-full' %>
+    <small><a href="https://www.freepik.com/free-vector/morning-essentials-concept-illustration_7556621.htm#from_element=detail_alsolike" class="text-mindaro-500">Image by storyset on Freepik</a></small>
   </div>
   <div class="flex flex-col justify-center ml-10">
-    <h1 class="font-balsamiq text-cadillac-400 font-bold text-7xl relative">
+    <h1 class="text-mindaro-500 font-bold leading-none tracking-tight mx-auto w-full text-2xl lg:max-w-3xl lg:text-5xl italic group-hover:border-b-2 group-hover:border-black">
       Готуй легко –
       <br>
-      зі Смакотою
-      <%= image_tag 'line.svg', class: 'absolute top-15 right-10 w-100' %>
+      зі <span>Смакотою</span>
       <br>
       все під рукою!
     </h1>
-    <ul class="font-nunito mt-5 list-disc list-inside">
+    <ul class="font-light leading-relaxed mx-auto lg:text-lg text-base max-w-3xl mt-5 list-disc list-inside">
       <li>Легко перевіряй, чи маєш усі необхідні інгредієнти</li>
       <li>Створюй список покупок у кілька кліків</li>
       <li>Зберігай улюблені рецепти в одному місці</li>
       <li>Плануй збалансоване меню на кожен день</li>
     </ul>
-    <div class="self-center mt-5 text-2xl"><%= link_to 'Доєднатися', '/', class: 'bg-cadillac-500 py-3 px-5 btn' %></div>
+    <div class="self-center mt-5 text-2xl">
+      <a class="group relative inline-block focus:ring-3 focus:outline-hidden" href="#">
+        <span
+    class="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-mindaro-300 transition-transform group-hover:translate-x-0 group-hover:translate-y-0"></span>
+        <span class="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold tracking-widest text-black uppercase">
+          Доєднатися
+        </span>
+      </a>
+    </div>
   </div>
 </div>
 <div class="flex self-center flex-1">
-  <h2 class="text-cadillac-400 font-bold text-3xl font-balsamiq">
+  <h2 class="text-mindaro-500 font-bold leading-snug tracking-normal mx-auto my-6 w-full text-2xl lg:text-4xl">
     Легке планування, зручне приготування, смачний результат! 😌👩‍🍳
   </h2>
 </div>

@@ -1,35 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 @import "tailwindcss";
 
 @theme {
-  --color-gothic-50: #f4f6f7;
-  --color-gothic-100: #e2e8eb;
-  --color-gothic-200: #c8d4d9;
-  --color-gothic-300: #a2b5be;
-  --color-gothic-400: #7c95a0;
-  --color-gothic-500: #5a7480;
-  --color-gothic-600: #4d616d;
-  --color-gothic-700: #43525b;
-  --color-gothic-800: #3c474e;
-  --color-gothic-900: #353d44;
-  --color-gothic-950: #20262c;
-
-  --color-cadillac-50: #faf5f7;
-  --color-cadillac-100: #f7ecef;
-  --color-cadillac-200: #f1d9e1;
-  --color-cadillac-300: #e6bbc8;
-  --color-cadillac-400: #d690a4;
-  --color-cadillac-500: #c66e84;
-  --color-cadillac-600: #b45669;
-  --color-cadillac-700: #983e4d;
-  --color-cadillac-800: #7e3642;
-  --color-cadillac-900: #6a313a;
-  --color-cadillac-950: #3f181e;
-
-  --font-balsamiq: "Balsamiq Sans", sans-serif;
-  --font-nunito: "Nunito", sans-serif;
+  --color-mindaro-50: #f9fde8;
+  --color-mindaro-100: #effacd;
+  --color-mindaro-200: #d9f38b;
+  --color-mindaro-300: #c9ec6a;
+  --color-mindaro-400: #b1df3c;
+  --color-mindaro-500: #92c51d;
+  --color-mindaro-600: #729d13;
+  --color-mindaro-700: #567813;
+  --color-mindaro-800: #465f15;
+  --color-mindaro-900: #3c5017;
+  --color-mindaro-950: #1e2c07;
 }
 
-.btn {
-  @apply rounded-md text-gothic-50 ml-auto font-balsamiq;
+.btn-bordered {
+  @apply inline-block rounded-sm border py-3 text-sm font-medium hover:text-white focus:ring-3 focus:outline-hidden;
+}
+
+.primary-bordered {
+  @apply border-mindaro-600 text-mindaro-600 hover:bg-mindaro-600;
 }
