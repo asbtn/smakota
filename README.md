@@ -1,15 +1,15 @@
-# Смакота 🍲
+# Smakota/Смакота 🍲
 
-Смакота is a web-first app designed to help you manage your pantry, plan meals, and create grocery lists.
+Smakota is a web-first app designed to help you manage your pantry, plan meals, and create grocery lists, currently in development.
 
-With Смакота, you can:
+With Smakota, you can:
 
 - **Track pantry items** and build your own list of ingredients.
 - **Generate grocery lists** that work seamlessly with your pantry and recipes.
 - **Save your favorite recipes** and easily plan your meals.
 - **Track leftovers** to make the most out of what you’ve already cooked.
 
-## Features
+## Planned Features
 
 - Customizable pantry inventory
 - Recipe storage and meal planning
