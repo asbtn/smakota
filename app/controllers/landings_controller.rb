@@ -1,4 +1,5 @@
 class LandingsController < ApplicationController
-  def show
-  end
+  skip_before_action :require_authentication
+
+  def show; end
 end
