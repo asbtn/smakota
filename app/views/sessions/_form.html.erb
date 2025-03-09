@@ -1,0 +1,37 @@
+<%= form_with url: session_path, class: "mb-0 max-w-md space-y-4" do |f| %>
+  <div>
+    <%= f.label :email, class: "sr-only" %>
+    <div class="group w-full relative inline-block focus:ring-3 focus:outline-hidden">
+      <span class="absolute inset-0 translate-x-1 translate-y-1 bg-mindaro-100 transition-transform group-hover:translate-x-0 group-hover:translate-y-0"></span>
+      <%= f.email_field :email, class: "w-full relative inline-block border-1 border-black p-4 pe-12 text-sm shadow-sm shadow-mindaro-300", placeholder: "Пошта" %>
+      <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+        </svg>
+      </span>
+    </div>
+  </div>
+  <div>
+    <%= f.label :password, class: "sr-only" %>
+    <div class="group w-full relative inline-block focus:ring-3 focus:outline-hidden">
+      <span class="absolute inset-0 translate-x-1 translate-y-1 bg-mindaro-100 transition-transform group-hover:translate-x-0 group-hover:translate-y-0"></span>
+      <%= f.password_field :password, class: "w-full relative inline-block border-1 border-black p-4 pe-12 text-sm shadow-sm shadow-mindaro-300", placeholder: "Пароль" %>
+      <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+        </svg>
+      </span>
+    </div>
+  </div>
+  <div class="flex items-center justify-between">
+    <p class="text-sm text-gray-500">
+      Немає обліковки?
+      <%= link_to "Доєднатися", new_user_path, class: "underline" %>
+    </p>
+    <%= link_to new_user_path, class: 'group relative inline-block focus:ring-3 focus:outline-hidden' do %>
+      <span class="absolute inset-0 translate-x-1 translate-y-1 bg-mindaro-300 transition-transform group-hover:translate-x-0 group-hover:translate-y-0"></span>
+      <%= f.submit "Увійти", class: "relative inline-block border-1 border-current px-5 py-2 text-sm font-bold tracking-widest text-black uppercase" %>
+    <% end %>
+  </div>
+<% end %>
