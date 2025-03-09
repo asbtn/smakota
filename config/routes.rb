@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resource :landing, only: :show
+
+  resources :users, only: %i[new create]
   resource :session
   resources :passwords, param: :token
 
