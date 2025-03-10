@@ -1,7 +1,7 @@
 <div class="flex grow justify-center">
   <div class="flex flex-col w-1/2 justify-center items-end">
-    <%= image_tag 'landing.svg', class: 'h-150 w-full' %>
-    <small class="text-mindaro-500">Image by <a href="https://www.freepik.com/free-vector/morning-essentials-concept-illustration_7556621.htm#from_element=detail_alsolike" class="underline">storyset</a> on Freepik</small>
+    <%= render 'animation' %>
+    <%= render 'shared/storyset' %>
   </div>
   <div class="flex flex-col justify-center ml-10">
     <h1 class="text-mindaro-500 font-bold leading-none tracking-tight mx-auto w-full text-2xl lg:max-w-3xl lg:text-5xl italic group-hover:border-b-2 group-hover:border-black">
@@ -20,9 +20,4 @@
     <small class="my-3 self-center text-gray-500">Відкритий код на <a href="https://github.com/asbtn/smakota" class="underline">Github</a></small>
     <%= render "sessions/form" %>
   </div>
-</div>
-<div class="flex self-center flex-1">
-  <h2 class="text-mindaro-500 font-light leading-snug tracking-tight mx-auto mb-4 w-full text-2xl lg:text-4xl">
-    Легке планування, зручне приготування, смачний результат! 😌👩‍🍳
-  </h2>
 </div>
