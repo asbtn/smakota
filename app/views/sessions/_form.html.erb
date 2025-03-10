@@ -1,7 +1,7 @@
 <%= form_with url: session_path, class: "mb-0 max-w-md space-y-4" do |f| %>
   <div>
     <%= f.label :email, class: "sr-only" %>
-    <div class="group w-full relative inline-block focus:ring-3 focus:outline-hidden">
+    <div class="w-full relative inline-block focus:ring-3 focus:outline-hidden">
       <span class="absolute inset-0 translate-x-1 translate-y-1 bg-mindaro-100 transition-transform group-hover:translate-x-0 group-hover:translate-y-0"></span>
       <%= f.email_field :email, class: "w-full relative inline-block border-1 border-black p-4 pe-12 text-sm shadow-sm shadow-mindaro-300", placeholder: "Пошта" %>
       <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -13,7 +13,7 @@
   </div>
   <div>
     <%= f.label :password, class: "sr-only" %>
-    <div class="group w-full relative inline-block focus:ring-3 focus:outline-hidden">
+    <div class="w-full relative inline-block focus:ring-3 focus:outline-hidden">
       <span class="absolute inset-0 translate-x-1 translate-y-1 bg-mindaro-100 transition-transform group-hover:translate-x-0 group-hover:translate-y-0"></span>
       <%= f.password_field :password, class: "w-full relative inline-block border-1 border-black p-4 pe-12 text-sm shadow-sm shadow-mindaro-300", placeholder: "Пароль" %>
       <span class="absolute inset-y-0 end-0 grid place-content-center px-4">

@@ -14,11 +14,3 @@
   --color-mindaro-900: #3c5017;
   --color-mindaro-950: #1e2c07;
 }
-
-.btn-bordered {
-  @apply inline-block rounded-sm border py-3 text-sm font-medium hover:text-white focus:ring-3 focus:outline-hidden;
-}
-
-.primary-bordered {
-  @apply border-mindaro-600 text-mindaro-600 hover:bg-mindaro-600;
-}
