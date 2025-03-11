@@ -1,0 +1,22 @@
+ua:
+  views:
+    landings:
+      show:
+        title: |
+          Готуй легко –
+          зі Смакотою
+          все під рукою!
+        features:
+          ingredients: Легко перевіряй, чи маєш усі необхідні інгредієнти
+          groceries: Створюй список покупок у кілька кліків
+          recipes: Зберігай улюблені рецепти в одному місці
+          meal_planning: Плануй збалансоване меню на кожен день
+        source_code: "Відкритий код на "
+  components:
+    sessions:
+      form:
+        email: Пошта
+        password: Пароль
+        no_account: "Немає обліковки?"
+        sign_up: 'Доєднатися'
+        log_in: 'Увійти'

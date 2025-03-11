@@ -52,13 +52,19 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 
-  # ERB files linting
-  gem "erb_lint"
+  # Phlex-Rails: A framework for building views in Rails using pure Ruby classes
+  gem "phlex-rails", "~> 2.1"
+
+  # Inline SVG: Allows embedding and manipulating SVG images in Rails views
+  gem "inline_svg"
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+
+  # ERB files linting
+  gem "erb_lint"
 end
 
 group :test do
