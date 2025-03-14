@@ -13,6 +13,12 @@ ua:
           meal_planning: Плануй збалансоване меню на кожен день
         source_code: "Відкритий код на "
   components:
+    form:
+      input:
+        email: Пошта
+        password: Пароль
+      submit:
+        login: Увійти
     sessions:
       form:
         email: Пошта
