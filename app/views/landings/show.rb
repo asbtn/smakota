@@ -11,7 +11,7 @@ class Views::Landings::Show < Views::Base
       end
 
       div(class: "flex flex-col justify-center ml-10") do
-        h1(class: "text-mindaro-500 font-bold leading-none tracking-tight mx-auto w-full text-2xl lg:max-w-3xl lg:text-5xl italic group-hover:border-b-2 group-hover:border-black") do
+        h1(class: "text-mindaro-500 font-bold leading-none tracking-tight mx-auto w-full text-2xl lg:max-w-3xl lg:text-5xl italic") do
           simple_format t(".title").html_safe
         end
 

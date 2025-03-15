@@ -1,14 +1,14 @@
 class Components::Form::Label < Components::Form::Base
-  def initialize(form:, field:)
+  def initialize(form:, attribute:)
     super(form:)
-    @field = field
+    @attribute = attribute
   end
 
   def view_template
-    form.label field, class: "sr-only"
+    form.label attribute, class: "sr-only"
   end
 
   private
 
-  attr_reader :field
+  attr_reader :attribute
 end

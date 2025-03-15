@@ -27,9 +27,9 @@
   <div class="flex items-center justify-between">
     <p class="text-sm text-gray-500">
       Немає обліковки?
-      <%= link_to "Доєднатися", new_user_path, class: "underline" %>
+      <%= link_to "Доєднатися", new_registration_path, class: "underline" %>
     </p>
-    <%= link_to new_user_path, class: 'group relative inline-block focus:ring-3 focus:outline-hidden' do %>
+    <%= link_to new_registration_path, class: 'group relative inline-block focus:ring-3 focus:outline-hidden' do %>
       <span class="absolute inset-0 translate-x-1 translate-y-1 bg-mindaro-300 transition-transform group-hover:translate-x-0 group-hover:translate-y-0"></span>
       <%= f.submit "Увійти", class: "relative inline-block border-1 border-current px-5 py-2 text-sm font-bold tracking-widest text-black uppercase" %>
     <% end %>
