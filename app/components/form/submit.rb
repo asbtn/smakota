@@ -1,7 +1,7 @@
 class Components::Form::Submit < Components::Form::Base
-  def initialize(form:, action:)
-    super(form:)
-    @action = action
+  def initialize(**options)
+    super
+    @action = options[:action]
   end
 
   def view_template

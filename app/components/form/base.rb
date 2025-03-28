@@ -1,6 +1,6 @@
 class Components::Form::Base < Components::Base
-  def initialize(form:)
-    @form = form
+  def initialize(**options)
+    @form = options[:form]
   end
 
   private

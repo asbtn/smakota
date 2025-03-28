@@ -1,7 +1,7 @@
 class Components::Form::Label < Components::Form::Base
-  def initialize(form:, attribute:)
-    super(form:)
-    @attribute = attribute
+  def initialize(**options)
+    super
+    @attribute = options[:attribute]
   end
 
   def view_template
