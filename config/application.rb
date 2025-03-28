@@ -25,6 +25,6 @@ module Smakota
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.i18n.load_path += Dir[Rails.root.join("my", "locales", "*.{rb,yml}")]
-    config.i18n.default_locale = :ua
+    config.i18n.default_locale = :uk
   end
 end

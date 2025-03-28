@@ -8,13 +8,13 @@ class RegistrationsController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new user_params
 
     respond_to do |format|
       if @user.save
         format.html { redirect_to root_path, notice: "User was successfully created." }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render Views::Registrations::New.new(user: @user), status: :unprocessable_entity }
       end
     end
   end
@@ -22,6 +22,6 @@ class RegistrationsController < ApplicationController
   private
 
     def user_params
-      params.fetch(:user, {})
+      params.require(:user).permit %i[name email_address password password_confirmation]
     end
 end

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Views::Base < Components::Base
   # The `Views::Base` is an abstract class for all your views.
 
