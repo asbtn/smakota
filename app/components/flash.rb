@@ -15,7 +15,6 @@ class Components::Flash < Components::Base
 
   def view_template
     flash.keys.each do |key|
-      debugger
       div role: "alert", class: "p-4 mb-5 border-1 #{DIV_CLASS[key]}" do
         p(class: "text-sm #{P_CLASS[key]}") { flash[key] }
       end

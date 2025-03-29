@@ -15,7 +15,7 @@ class Views::Passwords::New < Views::Base
           render Components::Typography::Title.new t(".title")
 
           form_with url: passwords_path, class: "mb-0 max-w-md space-y-4 justify-center" do |form|
-            render Components::Form::Input.new(form:, attribute: :email_address, field: :email, icon: true)
+            render Components::Form::Input.new(form:, attribute: :email_address, field: :email, icon: true, required: true)
 
             div class: "flex items-center justify-between" do
               p class: "text-sm text-gray-500" do
