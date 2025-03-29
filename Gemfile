@@ -71,10 +71,31 @@ group :development do
 
   # Open emails in browser
   gem "letter_opener"
+
+  # Rubocop extensions
+  gem "rubocop-rspec", require: false
+  gem "rubocop-rspec_rails", require: false
 end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+
+  # Code coverage
+  gem "simplecov", require: false
+end
+
+group :development, :test do
+  # Testing framework
+  gem "rspec-rails", "~> 7.0.0"
+
+  # Fixtures
+  gem "factory_bot_rails"
+
+  # One-liner tests
+  gem "shoulda-matchers", "~> 6.0"
+
+  # Fake data
+  gem "faker"
 end
