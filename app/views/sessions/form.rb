@@ -6,8 +6,8 @@ class Views::Sessions::Form < Components::Base
 
   def view_template
     form_with url: session_path, class: "mb-0 max-w-md space-y-4" do |form|
-      render Components::Form::Input.new(form:, attribute: :email_address, field: :email, icon: true)
-      render Components::Form::Input.new(form:, attribute: :password, icon: true)
+      render Components::Form::Input.new(form:, attribute: :email_address, field: :email, icon: true, required: true)
+      render Components::Form::Input.new(form:, attribute: :password, icon: true, required: true)
 
       div class: "flex items-center justify-between" do
         p class: "text-sm text-gray-500" do
