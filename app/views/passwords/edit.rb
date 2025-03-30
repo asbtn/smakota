@@ -1,8 +1,11 @@
-
-class Views::Passwords::New < Views::Base
+class Views::Passwords::Edit < Views::Base
   include Phlex::Rails::Helpers::FormWith
   include Phlex::Rails::Helpers::ImageTag
   include Phlex::Rails::Helpers::Flash
+
+  def initialize(token)
+    @token = token
+  end
 
   def view_template
     section class: "relative flex flex-wrap lg:h-screen lg:items-center" do
@@ -13,14 +16,9 @@ class Views::Passwords::New < Views::Base
 
   private
 
-  def render_left_half
-    div class: "relative h-64 w-full sm:h-96 lg:h-full lg:w-1/2 items-end" do
-      image_tag "storyset/Forgot password-bro.svg", class: "absolute inset-0 h-full w-full object-cover"
-      render Components::StorysetAttribution.new
-    end
-  end
+  attr_reader :token
 
-  def render_right_half
+  def render_left_half
     div class: "w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24" do
       div class: "mx-auto md:w-2/3 w-full" do
         render Components::Typography::Title.new t(".title")
@@ -32,15 +30,24 @@ class Views::Passwords::New < Views::Base
     end
   end
 
+
+  def render_right_half
+    div class: "relative h-64 w-full sm:h-96 lg:h-full lg:w-1/2 items-end" do
+      image_tag "storyset/My password-bro.svg", class: "absolute inset-0 h-full w-full object-cover"
+      render Components::StorysetAttribution.new
+    end
+  end
+
   def render_form
-    form_with url: passwords_path, class: "mb-0 max-w-md space-y-4 justify-center" do |form|
+    form_with url: password_path(token), method: :put, class: "mb-0 max-w-md space-y-4 justify-center" do |form|
       render_form_inputs(form)
       render_form_footer(form)
     end
   end
 
   def render_form_inputs(form)
-    render Components::Form::Input.new(form:, attribute: :email_address, field: :email, icon: true, required: true)
+    render Components::Form::Input.new(form:, attribute: :password, required: true, icon: true)
+    render Components::Form::Input.new(form:, attribute: :password_confirmation, field: :password, required: true, icon: true)
   end
 
   def render_form_footer(form)
