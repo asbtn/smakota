@@ -12,7 +12,7 @@ class RegistrationsController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to root_path, notice: "User was successfully created." }
+        format.html { redirect_to root_path }
       else
         format.html { render Views::Registrations::New.new(user: @user), status: :unprocessable_entity }
       end
