@@ -6,7 +6,7 @@ RSpec.describe "Landings" do
   describe "GET #show" do
     context "when user is not authenticated" do
       it "is successful" do
-        get landing_path
+        get "/landing"
 
         expect(response).to be_successful
       end
@@ -20,7 +20,7 @@ RSpec.describe "Landings" do
       end
 
       it "redirects to the dashboard" do
-        get landing_path
+        get "/landing"
 
         expect(response).to redirect_to(dashboard_path)
       end
