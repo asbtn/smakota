@@ -9,8 +9,8 @@ class Views::Registrations::New < Views::Base
 
   def view_template
     section class: "relative flex flex-wrap lg:h-screen lg:items-center" do
-      render_right_half
       render_left_half
+      render_right_half
     end
   end
 
@@ -23,7 +23,7 @@ class Views::Registrations::New < Views::Base
       div class: "mx-auto max-w-lg text-center mb-5" do
         render Components::Typography::Title.new t(".title")
 
-        p(class: "font-light leading-relaxed mx-auto lg:text-lg text-base max-w-3xl") { t ".description" }
+        p(class: "font-light leading-relaxed mx-auto lg:text-lg text-base max-w-3xl mb-5") { t ".description" }
 
         render_form
       end
@@ -47,15 +47,17 @@ class Views::Registrations::New < Views::Base
   end
 
   def render_form_inputs(form)
-    render_input Components::Form::Input.new(form:, attribute: :name, field: :text, required: true)
-    render_input Components::Form::Input.new(form:, attribute: :email_address, field: :email, required: true, icon: true)
-    render_input Components::Form::Input.new(form:, attribute: :password, required: true, icon: true)
-    render_input Components::Form::Input.new(form:, attribute: :password_confirmation, field: :password, required: true, icon: true)
-  end
-
-  def render_input(input_component)
     div class: "col-span-6" do
-      render input_component
+      render Components::Form::Input.new(form:, attribute: :name, field: :text, required: true)
+    end
+    div class: "col-span-6" do
+      render Components::Form::Input.new(form:, attribute: :email_address, field: :email, required: true, icon: true)
+    end
+    div class: "col-span-6 sm:col-span-3" do
+      render Components::Form::Input.new(form:, attribute: :password, required: true, icon: true)
+    end
+    div class: "col-span-6 sm:col-span-3" do
+      render Components::Form::Input.new(form:, attribute: :password_confirmation, field: :password, required: true, icon: true)
     end
   end
 
