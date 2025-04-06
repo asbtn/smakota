@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AuthHelper
   def login_as(user)
     session = user.sessions.create!

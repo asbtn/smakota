@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "rails_helper"
 
 RSpec.describe "Landings" do
@@ -22,7 +24,7 @@ RSpec.describe "Landings" do
       it "redirects to the dashboard" do
         get "/landing"
 
-        expect(response).to redirect_to(dashboard_path)
+        expect(response).to redirect_to(root_path)
       end
     end
   end
