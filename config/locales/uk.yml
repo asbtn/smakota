@@ -269,6 +269,8 @@ uk:
       long: "%d %B %Y, %H:%M"
       short: "%d %b, %H:%M"
     pm: по полудні
+  shared:
+    try_again_later: "Спробуйте пізніше."
   views:
     landings:
       show:
@@ -330,3 +332,6 @@ uk:
     update:
       alert: 'Паролі недійсні або не збігаються.'
       notice: 'Пароль скинуто.'
+  mailers:
+    password_mailer:
+      reset: 'Запит на відновлення паролю'

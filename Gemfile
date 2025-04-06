@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
@@ -23,12 +25,12 @@ gem "jbuilder"
 gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ windows jruby ]
+gem "tzinfo-data", platforms: %i[windows jruby]
 
 # Use the database-backed adapters for Rails.cache, Active Job, and Action Cable
+gem "solid_cable"
 gem "solid_cache"
 gem "solid_queue"
-gem "solid_cable"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
@@ -42,24 +44,30 @@ gem "thruster", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+# Phlex-Rails: A framework for building views in Rails using pure Ruby classes
+gem "phlex-rails", "~> 2.1"
+
+# Inline SVG: Allows embedding and manipulating SVG images in Rails views
+gem "inline_svg"
+
 # Centralization of locale data collection for Ruby on Rails
 gem "rails-i18n", "~> 8.0.0"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
+  gem "debug", platforms: %i[mri windows], require: "debug/prelude"
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
 
-  # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
-  gem "rubocop-rails-omakase", require: false
-
-  # Phlex-Rails: A framework for building views in Rails using pure Ruby classes
-  gem "phlex-rails", "~> 2.1"
-
-  # Inline SVG: Allows embedding and manipulating SVG images in Rails views
-  gem "inline_svg"
+  # Testing framework
+  gem "rspec-rails", "~> 7.0.0"
+  # Fixtures
+  gem "factory_bot_rails"
+  # One-liner tests
+  gem "shoulda-matchers", "~> 6.0"
+  # Fake data
+  gem "faker"
 end
 
 group :development do
@@ -72,7 +80,10 @@ group :development do
   # Open emails in browser
   gem "letter_opener"
 
-  # Rubocop extensions
+  # Rubocop
+  gem "rubocop", require: false
+  gem "rubocop-factory_bot", require: false
+  gem "rubocop-rails", require: false
   gem "rubocop-rspec", require: false
   gem "rubocop-rspec_rails", require: false
 end
@@ -84,18 +95,4 @@ group :test do
 
   # Code coverage
   gem "simplecov", require: false
-end
-
-group :development, :test do
-  # Testing framework
-  gem "rspec-rails", "~> 7.0.0"
-
-  # Fixtures
-  gem "factory_bot_rails"
-
-  # One-liner tests
-  gem "shoulda-matchers", "~> 6.0"
-
-  # Fake data
-  gem "faker"
 end
