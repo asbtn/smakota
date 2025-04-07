@@ -62,10 +62,10 @@ group :development, :test do
 
   # Testing framework
   gem "rspec-rails", "~> 7.0.0"
+
   # Fixtures
   gem "factory_bot_rails"
-  # One-liner tests
-  gem "shoulda-matchers", "~> 6.0"
+
   # Fake data
   gem "faker"
 end
@@ -82,10 +82,18 @@ group :development do
 
   # Rubocop
   gem "rubocop", require: false
+  gem "rubocop-capybara", require: false
   gem "rubocop-factory_bot", require: false
+  gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
   gem "rubocop-rspec", require: false
   gem "rubocop-rspec_rails", require: false
+
+  # Annotate models
+  gem "annotaterb"
+
+  # Rails best practices
+  gem "rails_best_practices", require: false
 end
 
 group :test do
@@ -95,4 +103,10 @@ group :test do
 
   # Code coverage
   gem "simplecov", require: false
+
+  # One-liner tests
+  gem "shoulda-matchers", "~> 6.0"
+
+  # DB cleaning
+  gem "database_cleaner-active_record"
 end
