@@ -14,7 +14,7 @@ module Authentication
     end
 
     def redirect_if_authenticated(**options)
-      before_action :redirect_to_after_authentication_url, **options, if: :authenticated?
+      before_action :redirect_to_dashboard, **options, if: :authenticated?
     end
   end
 
@@ -57,7 +57,7 @@ module Authentication
     cookies.delete(:session_id)
   end
 
-  def redirect_to_after_authentication_url
-    after_authentication_url
+  def redirect_to_dashboard
+    redirect_to dashboard_path
   end
 end

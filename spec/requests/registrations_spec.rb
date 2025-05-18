@@ -6,7 +6,7 @@ RSpec.describe "Registrations" do
   describe "POST #create" do
     context "when user is valid" do
       it "logs in and redirects to dashboard path" do
-        post "/registrations", params: { user: attributes_for(:user) }
+        post "/registration", params: { user: attributes_for(:user) }
 
         expect(response).to redirect_to(dashboard_path)
       end
@@ -14,7 +14,7 @@ RSpec.describe "Registrations" do
 
     context "when user is invalid" do
       it "returns unprocessable entity" do
-        post "/registrations", params: { user: attributes_for(:user).except(:password) }
+        post "/registration", params: { user: attributes_for(:user).except(:password) }
 
         expect(response).to have_http_status(:unprocessable_entity)
       end
