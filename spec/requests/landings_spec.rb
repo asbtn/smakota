@@ -24,7 +24,7 @@ RSpec.describe "Landings" do
       it "redirects to the dashboard" do
         get "/landing"
 
-        expect(response).to redirect_to(root_path)
+        expect(response).to redirect_to(dashboard_path)
       end
     end
   end

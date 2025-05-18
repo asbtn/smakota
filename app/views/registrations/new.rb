@@ -43,7 +43,7 @@ module Views
 
       def render_form
         div class: "mx-auto max-w-md text-center" do
-          form_for user, url: registrations_path, html: { class: "grid grid-cols-6 gap-6" } do |form|
+          form_for user, url: registration_path, html: { class: "grid grid-cols-6 gap-6" } do |form|
             render_form_inputs(form)
             render_form_footer(form)
           end
