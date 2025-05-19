@@ -105,7 +105,7 @@ group :test do
   gem "simplecov", require: false
 
   # One-liner tests
-  gem "shoulda-matchers", "~> 6.0"
+  gem "shoulda-matchers", "~> 6.5"
 
   # DB cleaning
   gem "database_cleaner-active_record"
