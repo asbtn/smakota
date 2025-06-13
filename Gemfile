@@ -45,7 +45,7 @@ gem "thruster", require: false
 # gem "image_processing", "~> 1.2"
 
 # Phlex-Rails: A framework for building views in Rails using pure Ruby classes
-gem "phlex-rails", "~> 2.1"
+gem "phlex-rails", "~> 2.3"
 
 # Inline SVG: Allows embedding and manipulating SVG images in Rails views
 gem "inline_svg"
