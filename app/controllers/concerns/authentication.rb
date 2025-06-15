@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Authentication
+
   extend ActiveSupport::Concern
 
   included do
@@ -60,4 +61,5 @@ module Authentication
   def redirect_to_dashboard
     redirect_to dashboard_path
   end
+
 end

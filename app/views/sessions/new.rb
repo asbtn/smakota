@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
 module Views
+
   module Sessions
+
     class New < Views::Base
+
       include Phlex::Rails::Helpers::Flash
       include Phlex::Rails::Helpers::ImageTag
 
@@ -31,6 +34,9 @@ module Views
           end
         end
       end
+
     end
+
   end
+
 end

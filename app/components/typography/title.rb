@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
 module Components
+
   module Typography
+
     class Title < Components::Base
+
       include Phlex::Rails::Helpers::SimpleFormat
 
       def initialize(content)
@@ -19,6 +22,9 @@ module Components
       private
 
       attr_reader :content
+
     end
+
   end
+
 end

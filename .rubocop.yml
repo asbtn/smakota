@@ -27,6 +27,15 @@ RSpec/MultipleExpectations:
   Exclude:
     - spec/system/**
 
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: true
+  EnforcedStyle: empty_lines  # blank lines inside module body
+
+Layout/EmptyLinesAroundClassBody:
+  Enabled: true
+  EnforcedStyle: empty_lines  # blank lines inside class body
+
+
 Metrics/MethodLength:
   Exclude:
     - 'app/views/**/*'
@@ -41,4 +50,7 @@ Style/ClassAndModuleChildren:
   EnforcedStyle: nested
 
 Rails/DynamicFindBy:
+  Enabled: false
+
+Rails/Output:
   Enabled: false

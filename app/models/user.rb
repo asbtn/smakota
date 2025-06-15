@@ -16,6 +16,7 @@
 #  index_users_on_email_address  (email_address) UNIQUE
 #
 class User < ApplicationRecord
+
   # == Extensions ===========================================================
   has_secure_password
 
@@ -41,4 +42,5 @@ class User < ApplicationRecord
 
   # == Instance Methods =====================================================
   normalizes :email_address, with: ->(e) { e.strip.downcase }
+
 end

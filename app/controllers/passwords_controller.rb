@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class PasswordsController < ApplicationController
+
   allow_unauthenticated_access
   rate_limit to: 10, within: 3.minutes, only: :create, with: lambda {
     redirect_to new_password_path, alert: t("shared.try_again_later")
@@ -39,4 +40,5 @@ class PasswordsController < ApplicationController
   rescue ActiveSupport::MessageVerifier::InvalidSignature
     redirect_to new_password_path, alert: t(".alert")
   end
+
 end

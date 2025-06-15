@@ -20,6 +20,7 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Session < ApplicationRecord
+
   # == Extensions ===========================================================
 
   # == Constants ============================================================
@@ -38,4 +39,5 @@ class Session < ApplicationRecord
   # == Class Methods ========================================================
 
   # == Instance Methods =====================================================
+
 end

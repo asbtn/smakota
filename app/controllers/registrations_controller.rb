@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class RegistrationsController < ApplicationController
+
   allow_unauthenticated_access
   rate_limit to: 100, within: 3.minutes, only: :create, with: lambda {
     redirect_to new_registration_path, alert: t("shared.try_again_later")
@@ -32,4 +33,5 @@ class RegistrationsController < ApplicationController
   def user_params
     params.expect(user: %i[name email_address password password_confirmation])
   end
+
 end

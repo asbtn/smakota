@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 module Components
+
   class Flash < Components::Base
+
     DIV_CLASS = {
       alert: "bg-rose-50 border-rose-300",
       notice: "bg-sky-50 border-sky-300"
@@ -17,9 +19,9 @@ module Components
     end
 
     def view_template
-      flash.keys.each do |key| # rubocop:disable Style/HashEachMethods
-        div role: "alert", class: "p-4 mb-5 border-1 #{DIV_CLASS[key]}" do
-          p(class: "text-sm #{P_CLASS[key]}") { flash[key] }
+      flash.each do |key, message|
+        div role: "alert", class: div_class(key) do
+          p(class: p_class(key)) { message }
         end
       end
     end
@@ -27,5 +29,10 @@ module Components
     private
 
     attr_reader :flash
+
+    def div_class(key) = "p-4 mb-5 border-1 #{DIV_CLASS[key] || 'bg-gray-50 border-gray-300'}"
+    def p_class(key) = "text-sm #{P_CLASS[key] || 'text-gray-700'}"
+
   end
+
 end

@@ -1,11 +1,14 @@
 # frozen_string_literal: true
 
 module Components
-  module Form
-    class Label < Components::Form::Base
-      def initialize(**options)
-        super
-        @attribute = options[:attribute]
+
+  module Forms
+
+    class Label < Base
+
+      def initialize(form:, attribute:)
+        super(form:)
+        @attribute = attribute
       end
 
       def view_template
@@ -15,6 +18,9 @@ module Components
       private
 
       attr_reader :attribute
+
     end
+
   end
+
 end
