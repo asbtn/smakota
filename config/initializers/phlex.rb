@@ -4,7 +4,9 @@ module Views
 end
 
 module Components
+
   extend Phlex::Kit
+
 end
 
 Rails.autoloaders.main.push_dir(

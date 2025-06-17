@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
 module Views
+
   module Sessions
+
     class Form < Components::Base
+
       include Phlex::Rails::Helpers::FormWith
       include Phlex::Rails::Helpers::Routes
 
@@ -18,21 +21,20 @@ module Views
       private
 
       def render_form_inputs(form)
-        render Components::Form::Input.new(form:, attribute: :email_address, field: :email, icon: true, required: true)
-        render Components::Form::Input.new(form:, attribute: :password, icon: true, required: true)
+        render Components::Forms::Inputs::Email.new(form:)
+        render Components::Forms::Inputs::Password.new(form:)
       end
 
       def render_form_footer(form)
-        div class: "flex items-center justify-between" do
-          p class: "text-sm text-gray-500" do
-            t(".forgot_password_or_sign_up",
-              forgot_password_link: new_password_path,
-              sign_up_link: new_registration_path).html_safe
-          end
-
-          render Components::Form::Submit.new(form:, action: :login)
+        render Components::Forms::Footer.new(form:, action: :log_in) do
+          t(".forgot_password_or_sign_up",
+            forgot_password_link: new_password_path,
+            sign_up_link: new_registration_path).html_safe
         end
       end
+
     end
+
   end
+
 end

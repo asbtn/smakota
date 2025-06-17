@@ -9,7 +9,9 @@ require "rails/all"
 Bundler.require(*Rails.groups)
 
 module Smakota
+
   class Application < Rails::Application
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.0
 
@@ -28,5 +30,7 @@ module Smakota
 
     config.i18n.load_path += Rails.root.glob("my/locales/*.{rb,yml}")
     config.i18n.default_locale = :uk
+
   end
+
 end

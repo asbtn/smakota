@@ -306,19 +306,20 @@ uk:
     passwords:
       new:
         title: 'Згадати пароль'
-        login: 'Увійти в обліковку'
+        log_in: 'Увійти в обліковку'
       edit:
         title: 'Оновити пароль'
-        login: 'Увійти в обліковку'
+        log_in: 'Увійти в обліковку'
   components:
-    form:
+    forms:
       input:
-        email_address: Пошта
-        password: Пароль
         name: Ім'я
+      inputs:
+        email: Пошта
+        password: Пароль
         password_confirmation: Пароль ще раз
       submit:
-        login: Увійти
+        log_in: Увійти
         sign_up: Доєднатися
         send: Відправити
   sessions:

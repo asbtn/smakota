@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
+
   allow_unauthenticated_access only: %i[new create]
   rate_limit to: 100, within: 3.minutes, only: :create, with: lambda {
     redirect_to landing_url, alert: t("shared.try_again_later")
@@ -24,4 +25,5 @@ class SessionsController < ApplicationController
     terminate_session
     redirect_to new_session_path
   end
+
 end

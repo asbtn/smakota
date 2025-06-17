@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
 module Views
+
   module Passwords
+
     class Edit < Views::Base
+
       include Phlex::Rails::Helpers::FormWith
-      include Phlex::Rails::Helpers::ImageTag
       include Phlex::Rails::Helpers::Flash
 
       def initialize(token)
@@ -12,33 +14,25 @@ module Views
       end
 
       def view_template
-        section class: "relative flex flex-wrap lg:h-screen lg:items-center" do
-          render_left_half
-          render_right_half
-        end
+        render Components::Public::TwoColumnsLayout.new(left_column:, right_column:)
       end
 
       private
 
       attr_reader :token
 
-      def render_left_half
-        div class: "w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24" do
-          div class: "mx-auto md:w-2/3 w-full" do
-            render Components::Typography::Title.new t(".title")
-
-            render Components::Flash.new flash
-
+      def left_column
+        lambda {
+          render Components::Public::FormWrapper.new(title: t(".title"), flash:) do
             render_form
           end
-        end
+        }
       end
 
-      def render_right_half
-        div class: "relative h-64 w-full sm:h-96 lg:h-full lg:w-1/2 items-end" do
-          image_tag "storyset/My password-bro.svg", class: "absolute inset-0 h-full w-full object-cover"
-          render Components::StorysetAttribution.new
-        end
+      def right_column
+        lambda {
+          render Components::Public::SvgIllustration.new(image_path: "storyset/My password-bro.svg")
+        }
       end
 
       def render_form
@@ -49,20 +43,18 @@ module Views
       end
 
       def render_form_inputs(form)
-        render Components::Form::Input.new(form:, attribute: :password, required: true, icon: true)
-        render Components::Form::Input.new(form:, attribute: :password_confirmation, field: :password, required: true,
-                                           icon: true)
+        render Components::Forms::Inputs::Password.new(form:)
+        render Components::Forms::Inputs::PasswordConfirmation.new(form:)
       end
 
       def render_form_footer(form)
-        div class: "flex items-center justify-between" do
-          p class: "text-sm text-gray-500" do
-            a(href: new_session_path, class: "underline") { t ".login" }
-          end
-
-          render Components::Form::Submit.new(form:, action: :send)
+        render Components::Forms::Footer.new(form:, action: :send) do
+          a(href: new_session_path, class: "underline") { t ".log_in" }
         end
       end
+
     end
+
   end
+
 end
