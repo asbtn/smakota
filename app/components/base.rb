@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 module Components
+
   class Base < Phlex::HTML
+
     include Components
 
     # Include any helpers you want to be available across all components
@@ -14,5 +16,7 @@ module Components
         super
       end
     end
+
   end
+
 end

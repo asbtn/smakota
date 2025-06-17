@@ -1,15 +1,21 @@
 # frozen_string_literal: true
 
 module Components
-  module Form
+
+  module Forms
+
     class Base < Components::Base
-      def initialize(**options)
-        @form = options[:form]
+
+      def initialize(form:)
+        @form = form
       end
 
       private
 
       attr_reader :form
+
     end
+
   end
+
 end

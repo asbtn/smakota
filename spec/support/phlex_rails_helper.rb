@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module PhlexRailsHelper
+
   def render(component)
     component.call
   end
@@ -19,6 +20,7 @@ module PhlexRailsHelper
   def controller
     @controller ||= ActionView::TestCase::TestController.new
   end
+
 end
 
 RSpec.configure do |config|
