@@ -2,15 +2,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-mindaro-50: #f9fde8;
-  --color-mindaro-100: #effacd;
-  --color-mindaro-200: #d9f38b;
-  --color-mindaro-300: #c9ec6a;
-  --color-mindaro-400: #b1df3c;
-  --color-mindaro-500: #92c51d;
-  --color-mindaro-600: #729d13;
-  --color-mindaro-700: #567813;
-  --color-mindaro-800: #465f15;
-  --color-mindaro-900: #3c5017;
-  --color-mindaro-950: #1e2c07;
+--color-hippie-pink-50: #fcf4f4;
+--color-hippie-pink-100: #f9eaea;
+--color-hippie-pink-200: #f3d8d9;
+--color-hippie-pink-300: #e9b8ba;
+--color-hippie-pink-400: #dc9095;
+--color-hippie-pink-500: #cb6871;
+--color-hippie-pink-600: #b54958;
+--color-hippie-pink-700: #a73f50;
+--color-hippie-pink-800: #7f3241;
+--color-hippie-pink-900: #6d2e3c;
+--color-hippie-pink-950: #3c151d;
+
 }
