@@ -11,11 +11,19 @@ With Smakota, you can:
 
 ## Planned Features
 
-- Customizable pantry inventory
-- Recipe storage and meal planning
-- Grocery list creation linked with pantry and recipes
-- Leftover tracking to reduce waste
 - Fully localized in Ukrainian 🇺🇦
+
+### In progress:
+- Pantry inventory
+- Grocery list creation linked with pantry
+-
+### To Do
+- Recipe storage
+- Meal planning
+- Fully localize in English
+-
+### Maybe
+- Leftover tracking to reduce waste
 
 ## Tech Stack
 
@@ -24,12 +32,17 @@ With Smakota, you can:
 - **PostgreSQL** for database management
 - **Hotwire Native** for a mobile app experience (may consider Electron/Capacitor)
 
+### Notable gems and technologies
+
+- `Phlex` for views and components
+
 ## Development Goals
 
-- Focus on **experimenting with Rails 8**, including Hotwire and Tailwind
+- Focus on **experimenting with Rails 8**, including Hotwire and TailwindCSS
 - Explore **Hotwire Native** for mobile app functionality
 - Deepen my understanding of deployment by working with cloud hosting, Docker, and continuous deployment setups
 - Challenge myself with designing a robust database structure, handling relationships between the pantry, grocery list, and recipes, and working towards building a reliable recipe parsing system
+- Explore new gems and approaches (like using `Phlex` for components, or `dry` gems)
 
 ## Setup with Docker Compose
 
