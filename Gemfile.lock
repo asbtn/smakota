@@ -167,6 +167,10 @@ GEM
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     json (2.12.2)
+    jsonb_accessor (1.4)
+      activerecord (>= 6.1)
+      activesupport (>= 6.1)
+      pg (>= 0.18.1)
     kamal (2.6.1)
       activesupport (>= 7.0)
       base64 (~> 0.2)
@@ -484,6 +488,7 @@ DEPENDENCIES
   importmap-rails
   inline_svg
   jbuilder
+  jsonb_accessor
   kamal
   letter_opener
   pg (~> 1.1)

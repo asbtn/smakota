@@ -53,6 +53,9 @@ gem "inline_svg"
 # Centralization of locale data collection for Ruby on Rails
 gem "rails-i18n", "~> 8.0.0"
 
+# JSONB accessor
+gem "jsonb_accessor"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[mri windows], require: "debug/prelude"
