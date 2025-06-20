@@ -64,7 +64,7 @@ group :development, :test do
   gem "brakeman", require: false
 
   # Testing framework
-  gem "rspec-rails", "~> 8.0.0"
+  gem "rspec-rails", "~> 8.0.1"
 
   # Fixtures
   gem "factory_bot_rails"
