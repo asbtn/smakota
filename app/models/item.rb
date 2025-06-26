@@ -34,9 +34,9 @@ class Item < ApplicationRecord
 
   jsonb_accessor :nutrition,
                  calories: :integer,
-                 protein: :integer,
-                 fat: :integer,
-                 carbohydrates: :integer
+                 protein: :float,
+                 fat: :float,
+                 carbohydrates: :float
 
   # == Constants ============================================================
 

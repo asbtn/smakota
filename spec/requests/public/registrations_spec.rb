@@ -8,7 +8,7 @@ RSpec.describe "Registrations" do
       it "logs in and redirects to dashboard path" do
         post "/registration", params: { user: attributes_for(:user) }
 
-        expect(response).to redirect_to(dashboard_path)
+        expect(response).to redirect_to(pantry_path)
       end
     end
 

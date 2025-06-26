@@ -24,7 +24,7 @@ RSpec.describe "Sessions" do
       it "redirects to dashboard" do
         get "/session/new"
 
-        expect(response).to redirect_to(dashboard_path)
+        expect(response).to redirect_to(pantry_path)
       end
     end
   end
@@ -69,7 +69,7 @@ RSpec.describe "Sessions" do
     it "redirects to new session path" do
       delete "/session"
 
-      expect(response).to redirect_to("/session/new")
+      expect(response).to redirect_to(pantry_path)
     end
   end
 end

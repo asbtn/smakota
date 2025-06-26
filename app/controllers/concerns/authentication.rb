@@ -59,7 +59,7 @@ module Authentication
   end
 
   def redirect_to_dashboard
-    redirect_to dashboard_path
+    redirect_to pantry_path
   end
 
 end

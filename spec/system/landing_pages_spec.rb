@@ -19,7 +19,7 @@ RSpec.describe "LandingPages" do
 
       click_button "commit"
 
-      expect(page).to have_current_path dashboard_path
+      expect(page).to have_current_path pantry_path
     end
   end
 

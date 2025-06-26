@@ -12,12 +12,15 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  root "landings#show"
+  root "public/landings#show"
 
-  resource :landing, only: :show
-  resource :registration, only: %i[new create]
-  resource :session
-  resources :passwords, param: :token
+  scope module: :public do
+    resource :landing, only: :show
 
-  resource :dashboard, only: :show
+    resource  :registration, only: %i[new create]
+    resource  :session
+    resources :passwords, param: :token
+  end
+
+  resource :pantry, only: :show
 end
