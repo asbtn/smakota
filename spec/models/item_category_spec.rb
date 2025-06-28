@@ -5,6 +5,7 @@
 # Table name: categories
 #
 #  id         :bigint           not null, primary key
+#  icon       :string           not null
 #  name       :string           not null
 #  type       :string           not null
 #  created_at :datetime         not null

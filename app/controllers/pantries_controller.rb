@@ -3,7 +3,9 @@
 class PantriesController < ApplicationController
 
   def show
-    render Views::Pantries::Show
+    pantry_items = Current.user.pantry_items.includes(item: :category)
+
+    render Views::Pantries::Show.new(pantry_items:)
   end
 
 end

@@ -274,6 +274,7 @@ uk:
   views:
     landings:
       show:
+        page_title: "Вітаємо!"
         title: |
           Готуй легко –
           зі Смакотою
@@ -328,6 +329,18 @@ uk:
       recipes: Рецепти
       meal_planning: Планування
       log_out: 'Вийти'
+    layouts:
+      application:
+        default_page_title_with_content: "Смакота: %{content}"
+        default_page_title: "Смакота"
+    item:
+      kilogram: кг
+      liter: л
+      nutrition:
+        protein: Білки
+        fat: Жири
+        carbohydrates: Вуглеводи
+        calories: Калорії
   public:
     sessions:
       create:

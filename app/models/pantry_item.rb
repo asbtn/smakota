@@ -1,21 +1,21 @@
-# frozen_string_literal: true
-
 # == Schema Information
 #
-# Table name: categories
+# Table name: pantry_items
 #
 #  id         :bigint           not null, primary key
-#  icon       :string           not null
-#  name       :string           not null
-#  type       :string           not null
+#  quantity   :integer          default(0), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  item_id    :bigint
+#  user_id    :bigint
 #
 # Indexes
 #
-#  index_categories_on_name  (name) UNIQUE
+#  index_pantry_items_on_item_id   (item_id)
+#  index_pantry_items_on_quantity  (quantity)
+#  index_pantry_items_on_user_id   (user_id)
 #
-class ItemCategory < Category
+class PantryItem < ApplicationRecord
 
   # == Extensions ===========================================================
 
@@ -24,9 +24,13 @@ class ItemCategory < Category
   # == Attributes ===========================================================
 
   # == Relationships ========================================================
-  has_many :items, foreign_key: :category_id, dependent: :destroy, inverse_of: :category
+  belongs_to :user
+  belongs_to :item
+
+  has_one :category, through: :item
 
   # == Validations ==========================================================
+  validates :quantity, presence: true, numericality: { greater_than_or_equal_to: 0, only_numeric: true }
 
   # == Scopes ===============================================================
 
@@ -35,5 +39,6 @@ class ItemCategory < Category
   # == Class Methods ========================================================
 
   # == Instance Methods =====================================================
+  delegate :name, :nutrition, :unit, to: :item
 
 end

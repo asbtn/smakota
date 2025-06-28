@@ -33,10 +33,10 @@ class Item < ApplicationRecord
   }
 
   jsonb_accessor :nutrition,
-                 calories: :integer,
-                 protein: :float,
-                 fat: :float,
-                 carbohydrates: :float
+                 calories_kcal: :integer,
+                 protein_g: :float,
+                 fat_g: :float,
+                 carbohydrates_g: :float
 
   # == Constants ============================================================
 
@@ -44,6 +44,9 @@ class Item < ApplicationRecord
 
   # == Relationships ========================================================
   belongs_to :category, class_name: "ItemCategory", inverse_of: :items
+
+  has_many :pantry_items, dependent: :destroy
+  has_many :users, through: :pantry
 
   # == Validations ==========================================================
   validates :name, :nutrition, :unit, presence: true

@@ -6,9 +6,22 @@ module Views
 
     class Show < Views::Base
 
-      def view_template
-        h1 { "колись тут будуть запаси" }
+      def initialize(pantry_items:)
+        @pantry_items = pantry_items
       end
+
+      def view_template
+        div class: "m-3" do
+          render Components::Search.new
+          pantry_items.find_each do |item|
+            render Components::Item.new(item: item)
+          end
+        end
+      end
+
+      private
+
+      attr_reader :pantry_items
 
     end
 

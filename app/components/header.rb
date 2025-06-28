@@ -20,22 +20,18 @@ module Components
     private
 
     def render_nav
-      nav class: "hidden md:block" do
-        ul class: "flex items-center gap-6 text-sm" do
-          render Headers::Link.new(name: t(".pantry"), path: pantry_path)
-          render Headers::Link.new(name: t(".shopping_list"))
-          render Headers::Link.new(name: t(".recipes"))
-          render Headers::Link.new(name: t(".meal_planning"))
-        end
+      ul class: "flex items-center gap-6 text-sm" do
+        render Headers::Link.new(name: t(".pantry"), path: pantry_path)
+        render Headers::Link.new(name: t(".shopping_list"), disabled: true)
+        render Headers::Link.new(name: t(".recipes"), disabled: true)
+        render Headers::Link.new(name: t(".meal_planning"), disabled: true)
       end
     end
 
     def render_user_section
       div class: "flex items-center gap-4" do
         div class: "sm:flex sm:gap-4" do
-          div class: "hidden sm:flex" do
-            render Headers::Button.new(name: t(".log_out"))
-          end
+          render Headers::Button.new(name: t(".log_out"), path: session_path, method: :delete)
         end
       end
     end
