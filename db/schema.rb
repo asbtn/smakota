@@ -23,13 +23,18 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_17_143709) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.integer "unit", null: false
     t.string "name", null: false
-    t.jsonb "nutrition", default: {}, null: false
-    t.integer "category_id", null: false
+    t.float "quantity", default: 0.0, null: false
+    t.integer "unit", null: false
+    t.string "type", null: false
+    t.bigint "category_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["name"], name: "index_items_on_name", unique: true
+    t.index ["quantity"], name: "index_items_on_quantity"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -50,6 +55,5 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_17_143709) do
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
   end
 
-  add_foreign_key "items", "categories"
   add_foreign_key "sessions", "users"
 end

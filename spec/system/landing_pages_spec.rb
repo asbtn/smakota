@@ -33,7 +33,7 @@ RSpec.describe "LandingPages" do
       click_button "commit"
 
       expect(page).to have_current_path new_session_path
-      expect(page).to have_content I18n.t("sessions.create.invalid_credentials")
+      expect(page).to have_content I18n.t("public.sessions.create.invalid_credentials")
     end
   end
 end

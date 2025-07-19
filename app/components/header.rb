@@ -5,13 +5,12 @@ module Components
   class Header < Components::Base
 
     def view_template
-      header class: "bg-hippie-pink-600 px-2 sm:px-2 lg:px-6" do
-        div class: "flex h-16 items-center justify-between" do
-          render Headers::Logo.new
+      header do
+        div class: "flex h-16 items-center" do
+          render_nav
 
-          div class: "md:flex md:items-center md:gap-12" do
-            render_nav
-            render_user_section
+          div class: "ml-auto" do
+            render_logout_button
           end
         end
       end
@@ -20,23 +19,17 @@ module Components
     private
 
     def render_nav
-      nav class: "hidden md:block" do
-        ul class: "flex items-center gap-6 text-sm" do
-          render Headers::Link.new(name: t(".pantry"), path: pantry_path)
-          render Headers::Link.new(name: t(".shopping_list"))
-          render Headers::Link.new(name: t(".recipes"))
-          render Headers::Link.new(name: t(".meal_planning"))
-        end
+      nav class: "flex items-center gap-6 text-sm" do
+        render Headers::Link.new(name: t(".pantry"), path: pantry_path)
+        render Headers::Link.new(name: t(".shopping_list"), disabled: true)
+        render Headers::Link.new(name: t(".recipes"), disabled: true)
+        render Headers::Link.new(name: t(".meal_planning"), disabled: true)
       end
     end
 
-    def render_user_section
-      div class: "flex items-center gap-4" do
-        div class: "sm:flex sm:gap-4" do
-          div class: "hidden sm:flex" do
-            render Headers::Button.new(name: t(".log_out"))
-          end
-        end
+    def render_logout_button
+      div class: "flex items-center" do
+        render Headers::Button.new(name: t(".log_out"), path: session_path, method: :delete)
       end
     end
 

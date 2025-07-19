@@ -6,83 +6,119 @@ ActiveRecord::Base.transaction do # rubocop:disable Metrics/BlockLength
                  name: "Test User")
   end
 
-  # Create default categories
-  categories = [
-    { name: "Фрукти", type: "ItemCategory" },
-    { name: "Овочі", type: "ItemCategory" },
-    { name: "Молочні продукти", type: "ItemCategory" },
-    { name: "М'ясо", type: "ItemCategory" },
-    { name: "Зернові", type: "ItemCategory" },
-    { name: "Напої", type: "ItemCategory" },
-    { name: "Хлібобулочні вироби", type: "ItemCategory" },
-    { name: "Солодощі", type: "ItemCategory" },
-    { name: "Заморожені продукти", type: "ItemCategory" },
-    { name: "Спеції та приправи", type: "ItemCategory" },
-    { name: "Консервовані продукти", type: "ItemCategory" }
-  ]
+  user = User.find_by(email_address: "test@example.com")
 
-  categories.each do |category|
-    Category.find_or_create_by!(name: category[:name], type: category[:type])
-  end
+  categories_with_items = {
+    { name: "Фрукти" } => [
+      { name: "Яблуко", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Банан", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Апельсин", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Груша", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Виноград", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Полуниця", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Черешня", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Лимон", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Ківі", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Ананас", unit: :kilogram }
+    ],
 
-  items = {
-    "Фрукти" => [
-      { name: "Яблуко", unit: :kilogram, nutrition: { calories: 95, protein: 0.5, fat: 0.3, carbohydrates: 25 } },
-      { name: "Банан", unit: :kilogram, nutrition: { calories: 89, protein: 1.1, fat: 0.3, carbohydrates: 23 } }
+    { name: "Овочі" } => [
+      { name: "Морква", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Картопля", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Помідор", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Огірок", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Цибуля", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Броколі", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Часник", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Перець солодкий", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Капуста білокачанна", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Селера", unit: :kilogram }
     ],
-    "Овочі" => [
-      { name: "Морква", unit: :kilogram, nutrition: { calories: 41, protein: 0.9, fat: 0.2, carbohydrates: 10 } },
-      { name: "Броколі", unit: :kilogram, nutrition: { calories: 55, protein: 3.7, fat: 0.6, carbohydrates: 11 } }
+
+    { name: "Молочні продукти" } => [
+      { name: "Молоко коров’яче", unit: :liter, quantity: Faker::Number.digit, user: },
+      { name: "Йогурт натуральний", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Сир твердий", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Кефір", unit: :liter, quantity: Faker::Number.digit, user: },
+      { name: "Сметана", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Творог", unit: :kilogram }
     ],
-    "Молочні продукти" => [
-      { name: "Молоко", unit: :liter, nutrition: { calories: 103, protein: 8, fat: 2.4, carbohydrates: 12 } },
-      { name: "Сир", unit: :kilogram, nutrition: { calories: 402, protein: 25, fat: 33, carbohydrates: 1.3 } }
+
+    { name: "М'ясо" } => [
+      { name: "Яловичина", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Свинина", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Курка", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Індичка", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Ягнятина", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Качка", unit: :kilogram }
     ],
-    "М'ясо" => [
-      { name: "Куряче філе", unit: :kilogram, nutrition: { calories: 239, protein: 27, fat: 14, carbohydrates: 0 } },
-      { name: "Яловичина", unit: :kilogram, nutrition: { calories: 250, protein: 26, fat: 17, carbohydrates: 0 } }
+
+    { name: "Зернові" } => [
+      { name: "Рис", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Вівсянка", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Пшениця", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Гречка", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Кукурудза", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Жито", unit: :kilogram }
     ],
-    "Зернові" => [
-      { name: "Рис", unit: :kilogram, nutrition: { calories: 130, protein: 2.7, fat: 0.3, carbohydrates: 28 } },
-      { name: "Гречка", unit: :kilogram, nutrition: { calories: 92, protein: 3.4, fat: 0.6, carbohydrates: 19 } }
+
+    { name: "Напої" } => [
+      { name: "Вода", unit: :liter, quantity: Faker::Number.digit, user: },
+      { name: "Кава", unit: :liter, quantity: Faker::Number.digit, user: },
+      { name: "Чай", unit: :liter, quantity: Faker::Number.digit, user: },
+      { name: "Сік апельсиновий", unit: :liter, quantity: Faker::Number.digit, user: },
+      { name: "Молоко коров’яче", unit: :liter }
     ],
-    "Хлібобулочні вироби" => [
-      { name: "Хліб", unit: :kilogram, nutrition: { calories: 265, protein: 9, fat: 3.2, carbohydrates: 49 } },
-      { name: "Булочка", unit: :piece, nutrition: { calories: 150, protein: 4, fat: 2, carbohydrates: 28 } }
+
+    { name: "Хлібобулочні вироби" } => [
+      { name: "Білий хліб", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Чорний хліб", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Булочка", unit: :serving, quantity: Faker::Number.digit, user: },
+      { name: "Багет", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Лаваш", unit: :kilogram }
     ],
-    "Напої" => [
-      { name: "Вода", unit: :liter, nutrition: { calories: 0, protein: 0, fat: 0, carbohydrates: 0 } },
-      { name: "Сік", unit: :liter, nutrition: { calories: 45, protein: 0.7, fat: 0.2, carbohydrates: 10 } }
+
+    { name: "Солодощі" } => [
+      { name: "Шоколад молочний", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Цукерки", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Мед", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Печиво", unit: :kilogram }
     ],
-    "Солодощі" => [
-      { name: "Шоколад", unit: :gram, nutrition: { calories: 200, protein: 2.5, fat: 12, carbohydrates: 24 } },
-      { name: "Печиво", unit: :piece, nutrition: { calories: 50, protein: 0.5, fat: 2, carbohydrates: 8 } }
+
+    { name: "Заморожені продукти" } => [
+      { name: "Заморожені овочі", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Заморожена риба", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Заморожені фрукти", unit: :kilogram }
     ],
-    "Заморожені продукти" => [
-      { name: "Заморожені овочі", unit: :kilogram,
-        nutrition: { calories: 50, protein: 2, fat: 0.5, carbohydrates: 10 } },
-      { name: "Заморожена піца", unit: :piece, nutrition: { calories: 300, protein: 12, fat: 15, carbohydrates: 30 } }
+
+    { name: "Спеції та приправи" } => [
+      { name: "Сіль", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Перець чорний", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Паприка", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Куркума", unit: :kilogram }
     ],
-    "Спеції та приправи" => [
-      { name: "Сіль", unit: :gram, nutrition: { calories: 0, protein: 0, fat: 0, carbohydrates: 0 } },
-      { name: "Перець", unit: :gram, nutrition: { calories: 0, protein: 0, fat: 0, carbohydrates: 0 } }
-    ],
-    "Консервовані продукти" => [
-      { name: "Консервовані помідори", unit: :kilogram,
-        nutrition: { calories: 18, protein: 0.9, fat: 0.2, carbohydrates: 4 } },
-      { name: "Консервований тунець", unit: :kilogram,
-        nutrition: { calories: 132, protein: 28, fat: 1, carbohydrates: 0 } }
+
+    { name: "Консервовані продукти" } => [
+      { name: "Консервовані огірки", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Консервована кукурудза", unit: :kilogram, quantity: Faker::Number.digit, user: },
+      { name: "Консервовані помідори", unit: :kilogram }
     ]
   }
 
-  items.each do |category_name, items_array|
-    category = Category.find_by(name: category_name)
-    items_array.each do |item|
-      Item.find_or_create_by!(name: item[:name]) do |i|
-        i.unit = item[:unit]
-        i.nutrition = item[:nutrition]
-        i.category = category
-      end
+  categories_with_items.each do |(category, items)|
+    item_category = ItemCategory.find_or_initialize_by(name: category[:name])
+    item_category.assign_attributes(category)
+    item_category.save
+
+    puts "Saved category: #{item_category} #{item_category.name}!"
+
+    items.each do |category_item|
+      item = PantryItem.find_or_initialize_by(name: category_item[:name])
+      item.assign_attributes(category_item)
+      item.category = item_category
+      item.save
+
+      puts "Saved item: #{item_category} #{item.name}!"
     end
   end
 end

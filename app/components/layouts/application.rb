@@ -24,10 +24,10 @@ module Components
             assets_tags
           end
 
-          body class: "bg-pattern-i-like-food" do
-            main class: "mx-auto max-w-screen-xl flex h-screen flex-col bg-hippie-pink-200" do
-              render Components::Header.new
+          body class: "bg-pattern-i-like-food min-h-screen flex flex-col mx-auto max-w-4xl" do
+            render Components::Header.new
 
+            main class: "w-full my-5 flex-1 flex flex-col bg-hippie-pink-200" do
               block.call if block_given?
             end
           end
@@ -37,7 +37,14 @@ module Components
       private
 
       def title_tag
-        title { content_for(:title) || "Смакота" }
+        title do
+          if content_for?(:title)
+            t(".default_page_title_with_content",
+              content: (yield :title))
+          else
+            t(".default_page_title")
+          end
+        end
       end
 
       def meta_tags
@@ -49,6 +56,7 @@ module Components
       def assets_tags
         favicon_link_tag asset_path("favicon.ico")
         stylesheet_link_tag :app, "data-turbo-track": "reload"
+        javascript_include_tag "turbo", type: "module"
         javascript_importmap_tags
       end
 

@@ -21,28 +21,17 @@
 #  index_items_on_quantity     (quantity)
 #  index_items_on_user_id      (user_id)
 #
-class Item < ApplicationRecord
+class PantryItem < Item
 
   # == Extensions ===========================================================
-  enum :unit, {
-    kilogram: 1,
-    liter: 2,
-    piece: 3,
-    serving: 4
-  }
 
   # == Constants ============================================================
 
   # == Attributes ===========================================================
 
   # == Relationships ========================================================
-  belongs_to :category, class_name: "ItemCategory", inverse_of: :items
-  belongs_to :user
 
   # == Validations ==========================================================
-  validates :name, :unit, presence: true
-  validates :name, uniqueness: { case_sensitive: false }, length: { minimum: 3, maximum: 256 }
-  validates :quantity, presence: true, numericality: { greater_than_or_equal_to: 0, only_numeric: true }
 
   # == Scopes ===============================================================
 

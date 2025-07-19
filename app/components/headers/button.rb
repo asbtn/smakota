@@ -7,19 +7,27 @@ module Components
     class Button < Components::Base
 
       include Phlex::Rails::Helpers::LinkTo
+      include Phlex::Rails::Helpers::ButtonTo
 
-      def initialize(name:, path: "")
-        @name = name
-        @path = path
+      def initialize(name:, path: "", method: :get)
+        @name   = name
+        @path   = path
+        @method = method.to_sym
       end
 
       def view_template
-        link_to name, path, class: "rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-hippie-pink-600"
+        div class: "group relative inline-block focus:ring-3 focus:outline-hidden" do
+          button_to name, path,
+                    method:,
+                    class: "cursor-pointer relative inline-block border-1 border-current px-5 py-2 " \
+                           "text-sm font-bold tracking-widest text-gray uppercase",
+                    form: { class: "inline" }
+        end
       end
 
       private
 
-      attr_reader :name, :path
+      attr_reader :name, :path, :method
 
     end
 

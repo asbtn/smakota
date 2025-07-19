@@ -13,5 +13,6 @@
 --color-hippie-pink-800: #7f3241;
 --color-hippie-pink-900: #6d2e3c;
 --color-hippie-pink-950: #3c151d;
+--shadow-backdrop: 5px 5px 0 var(--color-hippie-pink-400);
 
 }

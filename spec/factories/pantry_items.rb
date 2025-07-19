@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: items
@@ -22,11 +20,7 @@
 #  index_items_on_user_id      (user_id)
 #
 FactoryBot.define do
-  factory :item do
-    category factory: %i[item_category]
-
-    unit { Item.units.values.sample }
-    name { Faker::Food.ingredient }
-    quantity { Faker::Number.digit }
+  factory :pantry_item do
+    
   end
 end

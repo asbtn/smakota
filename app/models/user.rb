@@ -27,6 +27,9 @@ class User < ApplicationRecord
 
   # == Relationships ========================================================
   has_many :sessions, dependent: :destroy
+  has_many :pantry_items, dependent: :destroy
+
+  has_many :pantry_categories, -> { distinct }, through: :pantry_items, class_name: "ItemCategory", source: :category
 
   # == Validations ==========================================================
   validates :email_address, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }, length: { minimum: 3 },
